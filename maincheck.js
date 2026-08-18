@@ -86,7 +86,6 @@ function validateForm(event) {
 
     fetchRecordsPromise
         .then((jsonData) => {
-            // Save data permanently into browser storage
             localStorage.setItem("registeredStudents", jsonData);
 
             let parsedStudents = JSON.parse(jsonData);
