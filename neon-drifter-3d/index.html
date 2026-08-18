@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>neon-drifter-3d</title>
+  </head>
+  <body>
+    <!-- SCORE HUD -->
+    <div id="score-hud" style="
+    position: absolute; 
+    top: 20px; 
+    left: 20px; 
+    color: #00ffcc; 
+    font-family: monospace; 
+    font-size: 24px; 
+    font-weight: bold; 
+    text-shadow: 0 0 10px #00ffcc;
+    user-select: none;
+    z-index: 10;
+">SCORE: 0</div>
+
+    <!-- TELEMETRY HUD -->
+    <div id="telemetry-hud" style="
+    position: absolute; 
+    top: 20px; 
+    right: 20px; 
+    color: #ff00aa; 
+    font-family: monospace; 
+    font-size: 16px; 
+    font-weight: bold; 
+    text-shadow: 0 0 8px #ff00aa;
+    user-select: none;
+    background: rgba(10, 0, 20, 0.75);
+    padding: 15px;
+    border: 1px solid #ff00aa;
+    border-radius: 4px;
+    box-shadow: 0 0 15px rgba(255, 0, 170, 0.3);
+    z-index: 10;
+">
+    <div style="color: #00ffcc; text-shadow: 0 0 8px #00ffcc; margin-bottom: 8px; text-align: center;">VECTORS ──► TELEMETRY</div>
+    <div>[ENGINE MATRIX] ──► CORE HEALTH: <span id="health-val">100</span>%</div>
+    <div style="margin-left: 45px; color: #555;">│</div>
+    <div>[TIRE FRICTION] ─┬► FRONT L/R TIRES: <span id="tire-f-val">100</span>%</div>
+    <div style="margin-left: 45px; color: #555;">└► REAR L/R TIRES:  <span id="tire-r-val">100</span>%</div>
+    <div style="margin-top: 10px; font-size: 11px; color: #00ffff; text-align: center;" id="drift-status">STATUS: CRUISING</div>
+</div>
+
+    <!-- MAIN APP CONTAINER -->
+    <div id="app"></div>
+
+    <!-- START / INSTRUCTIONS OVERLAY -->
+    <div id="start-overlay" style="
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(5, 2, 10, 0.85);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    font-family: monospace;
+    color: #fff;
+    user-select: none;
+">
+        <h1 style="color: #00ffcc; text-shadow: 0 0 15px #00ffcc; font-size: 3rem; margin-bottom: 10px;">NEON DRIFTER 3D</h1>
+        <p style="color: #ff00aa; text-shadow: 0 0 8px #ff00aa; font-size: 1.2rem; margin-bottom: 30px;">GAME UNDER DEVELOPMENT - V1.0 PROTOCOL</p>
+
+        <!-- HOW IT WORKS BOX -->
+        <div style="
+            background: rgba(20, 5, 30, 0.9);
+            border: 2px solid #00ffcc;
+            box-shadow: 0 0 20px rgba(0, 255, 204, 0.4);
+            padding: 25px;
+            border-radius: 8px;
+            max-width: 500px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        ">
+            <h3 style="color: #00ffcc; margin-top: 0; text-align: center; text-shadow: 0 0 8px #00ffcc;">HOW IT WORKS</h3>
+            <p style="margin: 8px 0;"><strong>1. Acceleration:</strong> Press <span style="color: #00ffcc;">W / UP ARROW</span> to spool up the engine matrix.</p>
+            <p style="margin: 8px 0;"><strong>2. Steering:</strong> Use <span style="color: #00ffcc;">A/D or LEFT/RIGHT ARROWS</span> to adjust your vectors.</p>
+            <p style="margin: 8px 0;"><strong>3. Drift Mechanics:</strong> Tap the <span style="color: #ff00aa;">SPACEBAR</span> while turning to break rear tire friction and initiate a high-score drift chain!</p>
+        </div>
+
+        <!-- START BUTTON -->
+        <button id="start-btn" style="
+            background: transparent;
+            color: #00ffcc;
+            border: 2px solid #00ffcc;
+            padding: 15px 40px;
+            font-size: 20px;
+            font-family: monospace;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            text-shadow: 0 0 10px #00ffcc;
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
+            transition: all 0.2s ease;
+        ">INITIALIZE SIMULATION</button>
+    </div>
+
+    <!-- SCRIPT TO HANDLE START BUTTON INTERACTION -->
+    <script>
+        document.getElementById('start-btn').addEventListener('click', () => {
+            const overlay = document.getElementById('start-overlay');
+            // Fade out overlay smoothly
+            overlay.style.transition = 'opacity 0.5s ease';
+            overlay.style.opacity = '0';
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 500);
+        });
+
+        // Hover effects for the start button (pure JS styling backup)
+        const btn = document.getElementById('start-btn');
+        btn.addEventListener('mouseenter', () => {
+            btn.style.background = '#00ffcc';
+            btn.style.color = '#05020a';
+            btn.style.boxShadow = '0 0 25px #00ffcc';
+        });
+        btn.addEventListener('mouseleave', () => {
+            btn.style.background = 'transparent';
+            btn.style.color = '#00ffcc';
+            btn.style.boxShadow = '0 0 15px rgba(0, 255, 204, 0.3)';
+        });
+    </script>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

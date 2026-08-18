@@ -1,0 +1,95 @@
+
+
+body {
+    background: #0a0015;
+    color: #00ffcc;
+    overflow: hidden;
+}
+
+h1, h2, h3 {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+input[type="checkbox"]:checked + .car.img {
+    border-color:#00ffcc;
+    filter: brightness(1.1);
+}
+
+.game-header {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 10px;
+    background: rgba(10, 0, 21, 0.8);
+    border: 1px solid #e059a1;
+}
+
+.hud-panel {
+    position: absolute;
+    width: 300px;
+    height: auto;
+    padding: 10px;
+    overflow: visible;
+    border: 1px solid #ff00aa;
+}
+
+
+
+
+#German-Muscle{
+    height: 120px;
+    width: 180px;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb{
+    background:     #eb4007;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background-color: rgb(11, 14, 222);
+}
+
+img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 6px;
+}
+
+img:hover {
+    transition:1s;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.6);
+}
+
+.comment-box {
+    background: white;
+    border: 1px solid black;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+.comment-input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.comment-btn {
+    background: LightGray;
+    padding: 8px 15px;
+    border: 1px solid Gray;
+    cursor: pointer;
+}
+
