@@ -22,7 +22,7 @@ function validateForm(event) {
 
     if (firstName.length === 0 || mobileNo.length === 0 || email.length === 0 || password.length === 0) {
         alert("All fields must be filled out!");
-        errorBox.innerHTML = "!!!!!! All fields must be filled out, gng!";
+        errorBox.innerHTML = " &#10060 !!!!!! All fields must be filled out, gng!";
         highlightFields(["firstname", "sir_name",  "user_no", "email", "password"]);
         event.preventDefault();
         return false;
@@ -31,7 +31,7 @@ function validateForm(event) {
     let numericMobile = Number(mobileNo);
     if (mobileNo.length !== 10 || isNaN(numericMobile)) {
         alert("Mobile No must be exactly a 10-digit number!");
-        errorBox.innerHTML = "Mobile No must be exactly a 10-digit number!";
+        errorBox.innerHTML = " &#10060 Mobile No must be exactly a 10-digit number!";
         highlightFields(["user_no"]);
         event.preventDefault();
         return false;
@@ -39,7 +39,7 @@ function validateForm(event) {
 
     if (email.indexOf("@") === -1 || email.indexOf(".") === -1) {
         alert("Invalid email format! Missing '@' or '.'");
-        errorBox.innerHTML = "!!!!! Invalid email format! Missing '@' or '.'";
+        errorBox.innerHTML = " &#10060 Invalid email format! Missing '@' or '.'";
         highlightFields(["email"]);
         event.preventDefault();
         return false;
@@ -47,7 +47,7 @@ function validateForm(event) {
 
     if (password.length < 8) {
         alert("Password must be at least 8 characters long!");
-        errorBox.innerHTML = "Password must be at least 8 char PICK acters long!";
+        errorBox.innerHTML = " &#10060 Password must be at least 8 characters long!";
         highlightFields(["password"]);
         event.preventDefault();
         return false;
@@ -56,7 +56,7 @@ function validateForm(event) {
     let carChoices = document.querySelectorAll('input[name="car_choice"]:checked');
     if (carChoices.length === 0) {
         alert("GOTTA LEAST PICK ONE KINDA SLAB for slidin!");
-        errorBox.innerHTML = "ova here cabron";
+        errorBox.innerHTML = " &#10060 Ova here cabron";
         event.preventDefault();
         return false;
     }
